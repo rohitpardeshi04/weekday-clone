@@ -6,7 +6,7 @@ export const fetchJobData = async (offset) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        limit: 120,
+        limit: 12,
         offset: offset,
       }),
     };
