@@ -1,11 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-import JobDashboard from './Views/JobDashboard';
+import "./style.css";
+import JobDashboard from "./views/JobDashboard";
 
 function App() {
   return (
     <div className="App">
-    <JobDashboard/>
+      <JobDashboard />
     </div>
   );
 }
