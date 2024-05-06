@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Weekday Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Frontend Interview Assignment**
 
-## Available Scripts
+This project is a detailed recreation of Weekday's job search page using React and Material-UI. It offers a comprehensive user experience, including:
 
-In the project directory, you can run:
+1.  **Infinite Scrolling:** Users can seamlessly browse through job listings. Initially, 12 job cards are displayed, and additional cards are fetched dynamically as the user scrolls to the end of the page.
 
-### `npm start`
+2.  **Filtering Options:** The application provides six filtering options to enhance the job search process. Users can refine their search based on specific criteria such as company name, job role, minimum experience, remote/on-site preference, minimum base salary, and location.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3.  **Responsive Design:** The project ensures a consistent and intuitive user experience across various devices and screen sizes. Whether accessed on a desktop, tablet, or smartphone, users can navigate and interact with the application seamlessly.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Table of Contents
 
-### `npm test`
+- [Installation](#installation)
+- [Usage](#usage)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+Follow these steps to run the project locally:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1.  **Clone the repository:**
+	```bash
+	git clone https://github.com/rohitpardeshi04/weekday-clone.git`
+	```
+2.  **Navigate to the project directory:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+	```bash
+	cd YOUR_PATH/weekday-clone
+	```
+3.  **Install dependencies:**
+	```bash
+	npm install 
+	```
+## Usage  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1.  **Start the development server:**
 
-### `npm run eject`
+	```bash
+	npm start
+	```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+	This command will start the development server and open the project in your default web browser. You can view the project at `http://localhost:3000`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2.  **View the application:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+	Open your web browser and navigate to `http://localhost:3000` to view the application.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3.  **Explore the Application:**
 
-## Learn More
+- Upon loading, the application will display 12 job listings with infinite scrolling functionality.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Use the provided filters to refine your job search based on company name, job role, experience, remote/on-site preference, salary, and location.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The application is responsive and can be seamlessly used on any device or screen size.
