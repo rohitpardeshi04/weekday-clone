@@ -67,7 +67,7 @@ const JobCard = ({
             <div className="estimated-salary">
               <Typography variant="body2">
                 Estimated Salary: {salaryCurrencyCode}{" "}
-                {minJdSalary ? minJdSalary + " -" : ""} {maxJdSalary}
+                {minJdSalary ? minJdSalary + "K -" : ""} {maxJdSalary}K
               </Typography>
             </div>
 

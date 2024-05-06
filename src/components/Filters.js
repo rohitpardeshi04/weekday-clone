@@ -6,13 +6,21 @@ import {
   Button,
   MenuItem,
   Typography,
+  InputAdornment,
+  IconButton,
 } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Filters = ({ filters, setFilters }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFilters({ ...filters, [name]: value });
   };
+    
+      const clearSelection = (name) => {
+        setFilters({ ...filters, [name]: "" });
+      };
+
 
   return (
     <Container sx={{ marginTop: 5, marginBottom: 3 }}>
@@ -29,6 +37,17 @@ const Filters = ({ filters, setFilters }) => {
             variant="outlined"
             value={filters.companyName}
             onChange={handleChange}
+            InputProps={
+              filters.companyName && {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={() => clearSelection("companyName")}>
+                      <CloseIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }
+            }
           />
         </Grid>
         <Grid item md={2}>
@@ -41,6 +60,17 @@ const Filters = ({ filters, setFilters }) => {
             variant="outlined"
             value={filters.jobRole}
             onChange={handleChange}
+            InputProps={
+              filters.jobRole && {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={() => clearSelection("jobRole")} >
+                      <CloseIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }
+            }
           >
             <MenuItem value="">All</MenuItem>
             <MenuItem value="frontend">Frontend</MenuItem>
@@ -60,6 +90,17 @@ const Filters = ({ filters, setFilters }) => {
             variant="outlined"
             value={filters.minExperience}
             onChange={handleChange}
+            InputProps={
+              filters.minExperience && {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={() => clearSelection("minExperience")}>
+                      <CloseIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }
+            }
           >
             {[...Array(11).keys()].map((num) => (
               <MenuItem key={num} value={num}>
@@ -78,6 +119,17 @@ const Filters = ({ filters, setFilters }) => {
             variant="outlined"
             value={filters.remote}
             onChange={handleChange}
+            InputProps={
+              filters.remote && {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={() => clearSelection("remote")}>
+                      <CloseIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }
+            }
           >
             <MenuItem value="">All</MenuItem>
             <MenuItem value={true}>Remote</MenuItem>
@@ -94,6 +146,17 @@ const Filters = ({ filters, setFilters }) => {
             variant="outlined"
             value={filters.minSalary}
             onChange={handleChange}
+            InputProps={
+              filters.minSalary && {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={() => clearSelection("minSalary")}>
+                      <CloseIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }
+            }
           >
             {[...Array(11).keys()].map((num) => (
               <MenuItem key={num * 10} value={num * 10}>
@@ -112,6 +175,17 @@ const Filters = ({ filters, setFilters }) => {
             variant="outlined"
             value={filters.location}
             onChange={handleChange}
+            InputProps={
+              filters.location && {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={() => clearSelection("location")}>
+                      <CloseIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }
+            }
           >
             <MenuItem value="">All</MenuItem>
             <MenuItem value="delhi ncr">Delhi NCR</MenuItem>
