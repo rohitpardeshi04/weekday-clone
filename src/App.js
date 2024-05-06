@@ -8,6 +8,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // initial fetch 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);

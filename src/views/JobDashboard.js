@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { fetchJobData } from "../api/Services";
 import JobCard from "../components/JobCard";
 import { CircularProgress, Container, Grid } from "@mui/material";
+import Filters from "../components/Filters";
+import { handleFilter } from "../utils";
 
 const JobDashboard = ({ jobData, loading, setLoading }) => {
   const [data, setData] = useState(jobData);
@@ -9,15 +11,23 @@ const JobDashboard = ({ jobData, loading, setLoading }) => {
   const [offset, setOffset] = useState(0);
   const [hasMore, setHasMore] = useState(true);
   const containerRef = useRef(null);
+  const [filteredData, setFilteredData] = useState(jobData);
 
-  // set data initially
+  const [filters, setFilters] = useState({
+    companyName: "",
+    jobRole: "",
+    minExperience: "",
+    remote: "",
+    minSalary: "",
+    location: "",
+  });
+
   useEffect(() => {
     setData(jobData);
   }, [jobData]);
 
-  //fetch data
+  // Fetch data
   const getJobData = async (offset) => {
-    console.log("GET DATA");
     setLoading(true);
     try {
       const result = await fetchJobData(offset);
@@ -33,13 +43,8 @@ const JobDashboard = ({ jobData, loading, setLoading }) => {
     }
   };
 
-  // If reached end of page -> call getJobData with updated offset
+  // Load more data when reaching end of page
   const handleScroll = () => {
-    console.log(
-      window.innerHeight + document.documentElement.scrollTop + 1,
-      document.documentElement.offsetHeight,
-      loading
-    );
     if (
       window.innerHeight + Math.trunc(document.documentElement.scrollTop) + 1 <
         document.documentElement.offsetHeight ||
@@ -55,13 +60,21 @@ const JobDashboard = ({ jobData, loading, setLoading }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [loading]);
 
+  // Handle data when filter changes
+  useEffect(() => {
+    setLoading(true);
+    handleFilter(filters, data, setFilteredData);
+    setLoading(false);
+  }, [filters, data]);
+
   return (
     <div ref={containerRef}>
+      <Filters filters={filters} setFilters={setFilters} />
       <Container>
         <Grid container>
-          {data.map((d, index) => (
+          {filteredData.map((job, index) => (
             <Grid key={index} sx={{ height: "100%" }} p={2} md={4}>
-              <JobCard {...d} />
+              <JobCard {...job} />
             </Grid>
           ))}
         </Grid>
@@ -69,7 +82,9 @@ const JobDashboard = ({ jobData, loading, setLoading }) => {
       <div style={{ width: "100%", textAlign: "center" }}>
         {loading && <CircularProgress />}
         {error && <p>Error: {error}</p>}
-        {!loading && !error && data.length === 0 && <p>No jobs found.</p>}
+        {!loading && !error && filteredData.length === 0 && (
+          <p>No jobs found.</p>
+        )}
       </div>
     </div>
   );
